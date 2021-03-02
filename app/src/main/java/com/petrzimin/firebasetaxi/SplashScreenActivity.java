@@ -1,8 +1,12 @@
 package com.petrzimin.firebasetaxi;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.petrzimin.firebasetaxi.utils.TaxiUtils;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -10,19 +14,27 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        hideActionBar();
+        TaxiUtils.hideActionBar(this);
 
-
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    startActivity(new Intent(SplashScreenActivity.this, SignInActivity.class));
+                }
+            }
+        };
+        thread.start();
     }
 
-    private void hideActionBar() {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
-        if (getActionBar() != null) {
-            getActionBar().hide();
-        }
+    @Override
+    protected void onPause() {
+        Log.d("MyMESSAGE", "splash screen paused and after that finished");
+        super.onPause();
+        finish();
     }
-
-
 }
