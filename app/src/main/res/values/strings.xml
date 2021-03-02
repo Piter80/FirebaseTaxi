@@ -2,4 +2,6 @@
     <string name="app_name">FirebaseTaxi</string>
     <string name="taxi_app">Taxi App</string>
     <string name="taxi_app_splash_screen_image_image">Taxi app splash screen image</string>
+    <string name="i_m_a_passenger">I`m a passenger</string>
+    <string name="i_m_a_driver">I`m a driver</string>
 </resources>

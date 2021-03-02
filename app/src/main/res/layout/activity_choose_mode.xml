@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseModeActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/taxi_app_splash_screen_image_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/taxi_splashscreen" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:gravity="center_horizontal"
+            android:text="@string/taxi_app"
+            android:textColor="@color/menu_text"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/passengerButton"
+            android:onClick="goToPassengerSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:backgroundTint="@color/teal_700"
+            android:background="@color/teal_700"
+            android:padding="16dp"
+            android:text="@string/i_m_a_passenger"
+            android:textColor="@color/menu_text"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/driverButton"
+            android:onClick="goToDriverSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/menu_text"
+            android:background="@color/menu_text"
+            android:padding="16dp"
+            android:text="@string/i_m_a_driver"
+            android:textColor="@color/teal_700"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+</FrameLayout>
