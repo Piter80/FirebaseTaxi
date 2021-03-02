@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FirebaseTaxi</string>
+    <string name="taxi_app">Taxi App</string>
+    <string name="taxi_app_splash_screen_image_image">Taxi app splash screen image</string>
 </resources>
