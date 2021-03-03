@@ -11,6 +11,8 @@ import com.petrzimin.firebasetaxi.R;
 import java.util.Objects;
 
 public class TaxiUtils {
+
+    public static final String TAXI_APP_DEBUG_TAG = "TaxiAppDebugTag";
     public static void hideActionBar(AppCompatActivity activity) {
         if (activity.getSupportActionBar() != null) {
             activity.getSupportActionBar().hide();
@@ -31,9 +33,9 @@ public class TaxiUtils {
         }
 
         if (passwordInput.isEmpty() ||
-                passwordInput.length() > 7 ||
+                passwordInput.length() < 6 ||
                 passwordConfirmInput.isEmpty() ||
-                passwordConfirmInput.length() > 7 ||
+                passwordConfirmInput.length() < 6 ||
                 !passwordInput.equals(passwordConfirmInput)) {
             textInputPassword.setError(textInputPassword.getContext().getString(R.string.wrong_pass_error));
             return false;
