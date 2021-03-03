@@ -1,17 +1,15 @@
 package com.petrzimin.firebasetaxi;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Objects;
-import java.util.Optional;
+import com.google.android.material.textfield.TextInputLayout;
+import com.petrzimin.firebasetaxi.utils.TaxiUtils;
 
 public class DriverSignInActivity extends AppCompatActivity {
 
@@ -41,68 +39,17 @@ public class DriverSignInActivity extends AppCompatActivity {
         driverLoginSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validateEmail() && validateName() && validatePassword()) {
-                    Toast.makeText(v.getContext(), "All is OK", Toast.LENGTH_LONG).show();
+                if (TaxiUtils.validateEmail(textInputEmail) && TaxiUtils.validateName(textInputName) && TaxiUtils.validatePassword(textInputPassword, textInputConfirmPassword)) {
+                    Toast.makeText(v.getContext(),
+                            "Name: " + textInputName.getEditText().getText().toString() +
+                                    "\n Email: " + textInputEmail.getEditText().getText().toString() +
+                                    "\n and password is OK",
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
 
     }
 
-    private boolean validateEmail() {
-        String emailInput = "";
-        try {
-            emailInput = Objects.requireNonNull(textInputEmail.getEditText()).getText().toString().trim();
-        } catch (NullPointerException e) {
 
-        }
-        if (emailInput.isEmpty()) {
-            textInputEmail.setError(getString(R.string.input_email_error));
-            return false;
-        } else {
-            textInputEmail.setError("");
-            return true;
-        }
-    }
-
-    private boolean validateName() {
-        String nameInput = "";
-        try {
-            nameInput = Objects.requireNonNull(textInputName.getEditText()).getText().toString().trim();
-        } catch (NullPointerException e) {
-
-        }
-
-
-        if (nameInput.isEmpty() || nameInput.length() > 15) {
-            textInputEmail.setError(getString(R.string.input_name_error));
-            return false;
-        } else {
-            textInputEmail.setError("");
-            return true;
-        }
-    }
-
-    private boolean validatePassword() {
-        String passwordInput = "";
-        String passwordConfirmInput = "";
-        try {
-            passwordInput = Objects.requireNonNull(textInputPassword.getEditText()).getText().toString().trim();
-            passwordConfirmInput = Objects.requireNonNull(textInputConfirmPassword.getEditText()).getText().toString().trim();
-        } catch (NullPointerException e) {
-
-        };
-
-        if (passwordInput.isEmpty() ||
-                passwordInput.length() > 7 ||
-                passwordConfirmInput.isEmpty() ||
-                passwordConfirmInput.length() > 7 ||
-        !passwordInput.equals(passwordConfirmInput)) {
-            textInputPassword.setError(getString(R.string.wrong_pass_error));
-            return false;
-        } else {
-            textInputEmail.setError("");
-            return true;
-        }
-    }
 }
