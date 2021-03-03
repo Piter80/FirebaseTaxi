@@ -9,8 +9,11 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm password</string>
     <string name="sign_up">Sign Up</string>
-    <string name="tap_to_log_in">Tap to log in</string>
     <string name="input_email_error">Please input your email</string>
     <string name="input_name_error">Please input correct name (Max is 15 symbols)</string>
     <string name="wrong_pass_error">Password and confirm must be equals, cant be empty and not more, then 7 symbols</string>
+    <string name="tap_to_login">Tap to login</string>
+    <string name="login">Login</string>
+    <string name="tap_to_sign_up">Tap to sign up</string>
+
 </resources>
