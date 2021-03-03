@@ -1,5 +1,6 @@
 package com.petrzimin.firebasetaxi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -91,6 +92,7 @@ public class DriverSignInActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TaxiUtils.TAXI_APP_DEBUG_TAG, "signInWithEmail:success");
+                            startActivity(new Intent(DriverSignInActivity.this, DriverMapsActivity.class));
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
                         } else {
@@ -112,6 +114,7 @@ public class DriverSignInActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TaxiUtils.TAXI_APP_DEBUG_TAG, "createUserWithEmail:success");
+                            startActivity(new Intent(DriverSignInActivity.this, DriverMapsActivity.class));
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
                         } else {
